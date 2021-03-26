@@ -30,5 +30,4 @@ jobs:
 
     - name: Copy files to the website with the AWS CLI
       run: |
-        aws s3 cp index.html s3://kingslyroche
-        aws s3 cp resume_kingslyroche_abinitio.pdf s3://kingslyroche
+        aws s3 sync . s3://kingslyroche --include "*.html" --include "*.pdf"
