@@ -30,4 +30,4 @@ jobs:
 
     - name: Copy files to the website with the AWS CLI
       run: |
-        aws s3 sync . s3://kingslyroche --include "*.html" --include "*.pdf" --exclude "*"
+        aws s3 sync . s3://kingslyroche  --exclude "*" --include "*.html" --include "*.pdf"
