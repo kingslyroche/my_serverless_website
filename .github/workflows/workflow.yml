@@ -29,5 +29,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Copy files to the website with the AWS CLI
-      run: |
-        aws s3 sync . s3://kingslyroche  --exclude "*" --include "*.html" --include "*.pdf"
+      run: aws s3 sync . s3://kingslyroche.com  --exclude "*" --include "*.html" --include "*.pdf"
+      
+    - name: Invalidate Cloudformation Cache
+      run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_DISTRIBUTION_ID }}
